@@ -24,17 +24,32 @@ function click(code) {
   }
 }
 
-function hundredthPasses(listCode) {
-  let splitCode = listCode.split("\n");
-  let code = splitCode
-}
-  
-
 fs.readFile("output.txt", "utf8", (err, listCode) => {
   if (err) {
     console.error(err);
     return;
   }
+
+  function hundredthPasses() {
+    
+    for (let i = 0; i <= listCode.split("\n").length; i++) {
+      let splitCode = listCode.split("\n")[i];
+      console.log(splitCode);
+      let code = Number(splitCode.slice(1));
+      console.log(code);
+      let hundredths = Number((Number(code) / 100).toString().slice(0, 1));
+      var hundredthCount = 0;
+      if (hundredths !== 0) {
+        let hundredthCount = hundredthCount + hundredths;
+      }
+      
+    }
+    console.log(hundredths ,hundredthCount);
+
+  }
+
+  hundredthPasses();
+
   function main() {
     let dialValue = 50;
     let zeroPasses = 0;
