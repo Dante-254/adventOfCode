@@ -31,24 +31,16 @@ fs.readFile("output.txt", "utf8", (err, listCode) => {
   }
 
   function hundredthPasses() {
-    
-    for (let i = 0; i <= listCode.split("\n").length; i++) {
-      let splitCode = listCode.split("\n")[i];
-      console.log(splitCode);
-      let code = Number(splitCode.slice(1));
-      console.log(code);
+    var hundredthCount = 0;
+    for (let i = 0; i < listCode.split("\n").length; i++) {
+      // console.log(splitCode);
+      let code = Number(listCode.split("\n")[i].slice(1));
+      // console.log(code);
       let hundredths = Number((Number(code) / 100).toString().slice(0, 1));
-      var hundredthCount = 0;
-      if (hundredths !== 0) {
-        let hundredthCount = hundredthCount + hundredths;
-      }
-      
+      hundredthCount += hundredths;
     }
-    console.log(hundredths ,hundredthCount);
-
+    console.log(hundredthCount);
   }
-
-  hundredthPasses();
 
   function main() {
     let dialValue = 50;
@@ -69,5 +61,6 @@ fs.readFile("output.txt", "utf8", (err, listCode) => {
     console.log(`CheckDialValue called ${checkDialValuecount} times`);
     return zeroPasses;
   }
-  console.log(main(listCode));
+  console.log(main());
+  hundredthPasses();
 });
